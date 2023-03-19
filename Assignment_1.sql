@@ -6,7 +6,8 @@ CREATE TABLE jobs(
 job_id INT PRIMARY KEY NOT NULL,
 job_title VARCHAR(255),
 min_salary FLOAT,
-max_salary FLOAT
+max_salary FLOAT,
+CONSTRAINT min_salary check (min_salary>1000)
 );
 
 -- inserting rows into jobs table 
@@ -58,11 +59,12 @@ INSERT INTO countries VALUES
 CREATE TABLE locations (
     location_id INT PRIMARY KEY NOT NULL,
     street_address VARCHAR(255),
-    postal_code INT,
+    postal_code INT(10),
     city VARCHAR(255),
     state_province VARCHAR(255),
     country_id VARCHAR(255)
     FOREIGN KEY (country_id) REFERENCES countries(country_id),
+    
 
 );
 
@@ -124,8 +126,8 @@ INSERT INTO employees VALUES
 
 CREATE TABLE dependents(
  dependent_id INT PRIMARY KEY,
- first_name VARCHAR(255),
- last_name VARCHAR(255),
+ first_name VARCHAR(255) NOT NULL,
+ last_name VARCHAR(255) NOT NULL,
  relationship VARCHAR(255),
  employee_id INT
 
