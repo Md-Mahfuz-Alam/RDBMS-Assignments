@@ -1,3 +1,6 @@
+--Using PostgreSQL
+
+
 CREATE DATABASE employee_mngmnt;
 
 --   creating jobs table
